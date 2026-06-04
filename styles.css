@@ -90,10 +90,18 @@ nav a:focus-visible {
   overflow: hidden;
   color: var(--white);
   background: var(--charcoal);
+  isolation: isolate;
+  --pointer-x: 50%;
+  --pointer-y: 42%;
+  --hero-fx-x: 0px;
+  --hero-fx-y: 0px;
+  --hero-media-x: 0px;
+  --hero-media-y: 0px;
 }
 
 .hero-media,
-.hero-shade {
+.hero-shade,
+.hero-interaction {
   position: absolute;
   inset: 0;
 }
@@ -104,6 +112,8 @@ nav a:focus-visible {
   object-fit: cover;
   object-position: 68% center;
   filter: saturate(0.94) contrast(1.05);
+  transform: scale(1.03) translate3d(var(--hero-media-x), var(--hero-media-y), 0);
+  will-change: transform;
 }
 
 .hero-shade {
@@ -112,11 +122,41 @@ nav a:focus-visible {
     linear-gradient(0deg, rgba(16, 23, 25, 0.78) 0%, rgba(16, 23, 25, 0.02) 45%);
 }
 
+.hero-interaction {
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  mix-blend-mode: screen;
+}
+
+.hero-interaction::before {
+  content: "";
+  position: absolute;
+  inset: auto auto 10% 14%;
+  width: min(40vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(200, 135, 44, 0.08) 28%, rgba(15, 118, 110, 0.05) 48%, transparent 74%);
+  filter: blur(6px);
+  opacity: 0.85;
+  transform: translate3d(calc(var(--hero-fx-x) * 0.35), calc(var(--hero-fx-y) * 0.35), 0);
+}
+
+.hero-interaction canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-content {
   position: relative;
+  z-index: 2;
   width: min(860px, calc(100% - 40px));
   margin: 96px 0 56px;
   padding-left: clamp(20px, 6vw, 86px);
+  transform: translate3d(var(--hero-fx-x), var(--hero-fx-y), 0);
+  will-change: transform;
 }
 
 .hero-identity {
@@ -478,6 +518,11 @@ li + li {
     max-width: 520px;
   }
 
+  .hero-interaction::before {
+    inset: auto auto 12% 6%;
+    width: min(64vw, 420px);
+  }
+
   .section-inner,
   .proof,
   .skills {
@@ -502,6 +547,12 @@ li + li {
 
   .hero-media img {
     object-position: 74% center;
+  }
+
+  .hero-interaction::before {
+    inset: auto auto 16% -8%;
+    width: 78vw;
+    opacity: 0.6;
   }
 
   .hero-content {
@@ -551,5 +602,18 @@ li + li {
   .service-grid article {
     min-height: auto;
     padding: 22px;
+  }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .hero-interaction,
+  .hero-interaction::before {
+    display: none;
+  }
+
+  .hero-content,
+  .hero-media img {
+    transform: none;
+    transition: none;
   }
 }
