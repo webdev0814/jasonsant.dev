@@ -1,15 +1,62 @@
 :root {
-  --ink: #142026;
-  --muted: #5e6b72;
-  --line: #d7e0df;
-  --paper: #f7f8f5;
+  --ink: #e2e8f0;
+  --muted: #94a3b8;
+  --line: rgba(255, 255, 255, 0.08);
+  --paper: #0b1114;
   --white: #ffffff;
-  --teal: #0f766e;
-  --teal-dark: #0b4c49;
-  --amber: #c8872c;
-  --steel: #48616b;
-  --charcoal: #101719;
-  --shadow: 0 20px 60px rgba(16, 23, 25, 0.14);
+  --charcoal: #0b1114;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: 1px solid rgba(255, 255, 255, 0.08);
+  --band-bg: rgba(0, 0, 0, 0.2);
+  --glass-blur: blur(16px);
+  --highlight-bg: linear-gradient(180deg, rgba(45, 212, 191, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  
+  --teal-dark: #2dd4bf;
+  --teal-dim: rgba(45, 212, 191, 0.1);
+  --teal-border: rgba(45, 212, 191, 0.25);
+  --amber: #f59e0b;
+  --teal: #0d9488;
+}
+
+[data-theme-style="flat"] {
+  --card-bg: #131a1e;
+  --card-border: 1px solid rgba(255, 255, 255, 0.06);
+  --band-bg: #0f161a;
+  --glass-blur: none;
+}
+
+[data-theme-style="flat"] :root,
+[data-theme-style="flat"] [data-color-palette] {
+  --highlight-bg: #131a1e;
+}
+
+[data-color-palette="neon"] {
+  --teal-dark: #818cf8;
+  --teal-dim: rgba(129, 140, 248, 0.1);
+  --teal-border: rgba(129, 140, 248, 0.25);
+  --amber: #f472b6;
+  --teal: #4f46e5;
+  --highlight-bg: linear-gradient(180deg, rgba(129, 140, 248, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+[data-color-palette="emerald"] {
+  --teal-dark: #34d399;
+  --teal-dim: rgba(52, 211, 153, 0.1);
+  --teal-border: rgba(52, 211, 153, 0.25);
+  --amber: #fbbf24;
+  --teal: #059669;
+  --highlight-bg: linear-gradient(180deg, rgba(52, 211, 153, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+[data-color-palette="cyber"] {
+  --teal-dark: #38bdf8;
+  --teal-dim: rgba(56, 189, 248, 0.1);
+  --teal-border: rgba(56, 189, 248, 0.25);
+  --amber: #c084fc;
+  --teal: #0284c7;
+  --highlight-bg: linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 * {
@@ -166,9 +213,9 @@ nav a:focus-visible {
   max-width: 100%;
   margin-bottom: 24px;
   padding: 10px 16px 10px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: var(--card-border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
   box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
 }
@@ -267,7 +314,7 @@ h3 {
 }
 
 .button.primary {
-  color: var(--charcoal);
+  color: #000;
   background: var(--white);
 }
 
@@ -293,9 +340,10 @@ h3 {
 .hero-stats div {
   min-height: 128px;
   padding: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: var(--card-border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
 }
 
 .hero-stats dt {
@@ -310,7 +358,7 @@ h3 {
 }
 
 .section-band {
-  background: var(--white);
+  background: var(--band-bg);
 }
 
 .section-inner,
@@ -357,10 +405,11 @@ h3 {
 
 .intro-highlights {
   padding: 22px 24px;
-  border: 1px solid var(--line);
+  border: var(--card-border);
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(15, 118, 110, 0.06) 0%, rgba(255, 255, 255, 0.98) 100%);
-  box-shadow: 0 16px 38px rgba(16, 23, 25, 0.05);
+  background: var(--highlight-bg);
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--glass-blur);
 }
 
 .intro-highlights-label {
@@ -376,7 +425,8 @@ h3 {
 }
 
 .intro-skill-cloud span {
-  background: rgba(255, 255, 255, 0.84);
+  background: var(--card-bg);
+  border: var(--card-border);
 }
 
 .intro-skill-cloud a {
@@ -402,10 +452,11 @@ h3 {
 .service-grid article {
   min-height: 240px;
   padding: 28px;
-  background: var(--white);
-  border: 1px solid var(--line);
+  background: var(--card-bg);
+  border: var(--card-border);
   border-radius: 8px;
-  box-shadow: 0 16px 38px rgba(16, 23, 25, 0.06);
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--glass-blur);
 }
 
 .audiences p,
@@ -441,9 +492,10 @@ h3 {
 .timeline article {
   position: relative;
   padding: 22px 24px 22px 28px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid var(--line);
+  background: var(--card-bg);
+  border: var(--card-border);
   border-radius: 8px;
+  backdrop-filter: var(--glass-blur);
 }
 
 .timeline article::before {
@@ -470,9 +522,10 @@ h3 {
 
 .credential-columns div {
   padding: 24px;
-  border: 1px solid var(--line);
+  border: var(--card-border);
   border-radius: 8px;
-  background: var(--paper);
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
 }
 
 ul {
@@ -498,8 +551,8 @@ li + li {
 .skill-cloud span {
   padding: 10px 14px;
   color: var(--teal-dark);
-  background: rgba(15, 118, 110, 0.09);
-  border: 1px solid rgba(15, 118, 110, 0.24);
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-border);
   border-radius: 8px;
   font-weight: 750;
 }
@@ -515,8 +568,8 @@ li + li {
 
 .contact .button.secondary {
   color: var(--teal-dark);
-  border-color: rgba(15, 118, 110, 0.32);
-  background: rgba(15, 118, 110, 0.08);
+  border-color: var(--teal-border);
+  background: var(--teal-dim);
 }
 
 .contact .button.pending {
@@ -665,3 +718,4 @@ li + li {
     transition: none;
   }
 }
+
