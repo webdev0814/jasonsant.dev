@@ -29,7 +29,7 @@ def fetch_text(url: str) -> str:
     request = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "Mozilla/5.0 (compatible; jasonsant-dev-sync/1.0)",
+            "User-Agent": "Mozilla/5.0 (compatible; jason-agentic-sync/1.0)",
             "Accept": "text/html,application/xhtml+xml",
         },
     )
