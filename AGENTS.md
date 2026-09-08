@@ -26,7 +26,7 @@
 
 ### Running / Starting
 ```bash
-python <entrypoint>.py
+python3 <entrypoint>.py
 ```
 
 ### Testing / Verification
@@ -38,6 +38,9 @@ python <entrypoint>.py
 
 ## 4. Recent Commit Activity (Where We Left Off)
 The most recent commits show the latest development trajectory:
+- `[8fda6e2]` (2026-09-04) docs: add comprehensive agent briefing (AGENTS.md, GEMINI.md, CLAUDE.md)
+- `[afd52ba]` (2026-09-04) docs: add comprehensive agent briefing (AGENTS.md, GEMINI.md, CLAUDE.md)
+- `[87d41a3]` (2026-09-04) docs: add comprehensive agent briefing (AGENTS.md, GEMINI.md, CLAUDE.md)
 - `[2f083b4]` (2026-09-04) docs: add comprehensive agent briefing (AGENTS.md, GEMINI.md, CLAUDE.md)
 - `[0438b8e]` (2026-09-04) docs: add comprehensive agent briefing (AGENTS.md, GEMINI.md, CLAUDE.md)
 - `[b632c2a]` (2026-09-04) docs: add comprehensive agent briefing (AGENTS.md, GEMINI.md, CLAUDE.md)
@@ -45,9 +48,6 @@ The most recent commits show the latest development trajectory:
 - `[fa35961]` (2026-09-03) Sync positioning links from GitHub showcase
 - `[d49f2ea]` (2026-09-03) Curate portfolio repositories deterministically
 - `[06c55ee]` (2026-09-03) Align portfolio with AI solutions leadership
-- `[7905cd9]` (2026-09-03) Rename headshot asset for Jason Agentic persona
-- `[a7d88f1]` (2026-09-03) Normalize portfolio sync identity
-- `[54b23ba]` (2026-09-03) Adopt Jason Agentic calendar persona
 
 ---
 
