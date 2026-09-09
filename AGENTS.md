@@ -38,6 +38,9 @@ python3 <entrypoint>.py
 
 ## 4. Recent Commit Activity (Where We Left Off)
 The most recent commits show the latest development trajectory:
+- `[e9ceeb8]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
+- `[ed39b72]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
+- `[efec3ec]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
 - `[aeece4b]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
 - `[07924a4]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
 - `[069c3bc]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
@@ -45,9 +48,6 @@ The most recent commits show the latest development trajectory:
 - `[7b89fdc]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
 - `[de3f418]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
 - `[a12770a]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
-- `[1cfa48d]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
-- `[98daae8]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
-- `[a7bda08]` (2026-09-08) docs: update agent briefing with multi-computer handoff protocol
 
 ---
 
