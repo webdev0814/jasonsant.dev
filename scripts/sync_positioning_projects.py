@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import os
 import pathlib
 import sys
 import urllib.error
@@ -29,12 +30,19 @@ TARGET_REPOS = [
 
 
 def fetch_repo(slug: str) -> dict[str, str] | None:
+    headers = {
+        "User-Agent": "Mozilla/5.0 (compatible; jason-agentic-sync/2.0)",
+        "Accept": "application/vnd.github+json",
+    }
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    elif os.environ.get("GITHUB_ACTIONS") == "true":
+        raise RuntimeError("GITHUB_TOKEN must be provided to the sync step in GitHub Actions.")
+
     request = urllib.request.Request(
         f"https://api.github.com/repos/{OWNER}/{slug}",
-        headers={
-            "User-Agent": "Mozilla/5.0 (compatible; jason-agentic-sync/2.0)",
-            "Accept": "application/vnd.github+json",
-        },
+        headers=headers,
     )
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
