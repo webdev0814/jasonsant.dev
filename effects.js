@@ -70,6 +70,79 @@
     updateThemeControl();
   }
 
+  const createSvgElement = (name, attributes = {}) => {
+    const element = document.createElementNS(SVG_NAMESPACE, name);
+
+    Object.entries(attributes).forEach(([attribute, value]) => {
+      element.setAttribute(attribute, String(value));
+    });
+
+    return element;
+  };
+
+  const createHeroArchitecture = () => {
+    const container = document.querySelector(".decision-spine");
+
+    if (!container || container.querySelector(".hero-architecture")) {
+      return;
+    }
+
+    const svg = createSvgElement("svg", {
+      class: "hero-architecture",
+      viewBox: "0 0 70 520",
+      preserveAspectRatio: "none",
+      "aria-hidden": "true",
+      focusable: "false"
+    });
+
+    const trace = createSvgElement("path", {
+      class: "hero-spine-trace",
+      d: "M22 34V130H50V226H22V322H53V418H22V494",
+      pathLength: "1"
+    });
+
+    const branches = [
+      "M22 34H66",
+      "M50 130H66",
+      "M22 226H66",
+      "M53 322H66",
+      "M22 418H66"
+    ];
+
+    svg.append(trace);
+
+    branches.forEach((pathData) => {
+      svg.append(
+        createSvgElement("path", {
+          class: "hero-spine-branch",
+          d: pathData,
+          pathLength: "1"
+        })
+      );
+    });
+
+    [
+      [22, 34, true],
+      [50, 130, false],
+      [22, 226, false],
+      [53, 322, false],
+      [22, 418, false]
+    ].forEach(([cx, cy, decision]) => {
+      svg.append(
+        createSvgElement("circle", {
+          class: `hero-spine-node${decision ? " is-decision" : ""}`,
+          cx,
+          cy,
+          r: decision ? 5 : 4
+        })
+      );
+    });
+
+    container.prepend(svg);
+  };
+
+  createHeroArchitecture();
+
   const compactMobileDiagram = (svg) => {
     const mobileGroup = svg.querySelector(".diagram-mobile");
     const connectors = mobileGroup?.querySelector(".diagram-connectors");
@@ -118,6 +191,7 @@
 
       if (index < nodes.length - 1) {
         const connector = document.createElementNS(SVG_NAMESPACE, "path");
+
         connector.setAttribute(
           "d",
           `M180 ${y + 46}V${12 + (index + 1) * 70}`
@@ -159,6 +233,7 @@
     caseStudy.insertBefore(template.content.cloneNode(true), caseFlow);
 
     const diagram = caseStudy.querySelector(".case-diagram svg");
+
     if (diagram) {
       compactMobileDiagram(diagram);
     }
@@ -198,6 +273,7 @@
         mobileMenu.open = false;
 
         const summary = mobileMenu.querySelector("summary");
+
         if (summary) {
           summary.focus();
         }
