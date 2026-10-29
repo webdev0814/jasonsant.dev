@@ -27,6 +27,46 @@ TARGET_REPOS = [
     "openclaw-to-hermes-orchestrator-migration",
 ]
 
+SHOWCASE_URLS = [
+    f"https://github.com/{OWNER}/browser-llm-debate-orchestrator",
+    f"https://github.com/{OWNER}/stakeholder-outreach-draft-generator",
+    f"https://github.com/{OWNER}/agent-prompt-context-compression",
+    f"https://github.com/{OWNER}/agent-vps-security-hardening",
+    f"https://github.com/{OWNER}/single-vm-agent-consolidation",
+    f"https://github.com/{OWNER}/openclaw-to-hermes-orchestrator-migration",
+]
+
+
+def find_marker_block(index_text: str) -> tuple[int, int, str]:
+    start_marker_at = index_text.find(START_MARKER)
+    if start_marker_at == -1:
+        raise RuntimeError("Positioning link start marker was not found in index.html.")
+
+    content_start = start_marker_at + len(START_MARKER)
+    content_end = index_text.find(END_MARKER, content_start)
+    if content_end == -1:
+        raise RuntimeError("Positioning link end marker was not found in index.html.")
+
+    return content_start, content_end, index_text[content_start:content_end]
+
+
+def contains_case_study_cards(block: str) -> bool:
+    return (
+        "<article" in block
+        or 'class="case-study"' in block
+        or 'class="case-flow"' in block
+        or 'class="case-count"' in block
+    )
+
+
+def verify_showcase_urls(block: str) -> None:
+    missing_urls = [url for url in SHOWCASE_URLS if url not in block]
+    for url in missing_urls:
+        print(
+            f"warning: protected case-study showcase is missing {url}",
+            file=sys.stderr,
+        )
+
 
 def fetch_repo(slug: str) -> dict[str, str] | None:
     request = urllib.request.Request(
@@ -54,7 +94,7 @@ def fetch_repo(slug: str) -> dict[str, str] | None:
     }
 
 
-def build_links_markup(repos: list[dict[str, str]]) -> str:
+def build_links_markup(repos: list[dict[str, str]], newline: str) -> str:
     lines = []
     for repo in repos:
         title = html.escape(repo["description"], quote=True)
@@ -64,20 +104,39 @@ def build_links_markup(repos: list[dict[str, str]]) -> str:
             f'target="_blank" rel="noreferrer"{title_fragment}>'
             f'{html.escape(repo["name"])}</a></span>'
         )
-    return "\n".join(lines)
+    return newline.join(lines)
 
 
-def update_index(index_text: str, links_markup: str) -> str:
-    if START_MARKER not in index_text or END_MARKER not in index_text:
-        raise RuntimeError("Positioning link markers were not found in index.html.")
+def populate_empty_block(index_text: str, links_markup: str, newline: str) -> str:
+    content_start, content_end, block = find_marker_block(index_text)
+    if block.strip():
+        raise RuntimeError(
+            "Refusing to replace a non-empty positioning showcase block."
+        )
 
-    start = index_text.index(START_MARKER) + len(START_MARKER)
-    end = index_text.index(END_MARKER)
-    replacement = "\n" + links_markup + "\n              "
-    return index_text[:start] + replacement + index_text[end:]
+    replacement = newline + links_markup + newline + "              "
+    return index_text[:content_start] + replacement + index_text[content_end:]
 
 
 def main() -> int:
+    original_bytes = INDEX_PATH.read_bytes()
+    original = original_bytes.decode("utf-8")
+    _, _, block = find_marker_block(original)
+
+    # Any authored content between the markers is protected. In particular,
+    # case-study cards are verified locally and returned byte-identical without
+    # making GitHub API requests or writing index.html.
+    if block.strip():
+        if contains_case_study_cards(block):
+            verify_showcase_urls(block)
+            print("Protected case-study showcase detected; no changes were made.")
+        else:
+            print(
+                "Protected non-empty positioning showcase detected; "
+                "no changes were made."
+            )
+        return 0
+
     repos = []
     for slug in TARGET_REPOS:
         repo = fetch_repo(slug)
@@ -89,11 +148,15 @@ def main() -> int:
     if not repos:
         raise RuntimeError("No curated public repositories are currently available.")
 
-    original = INDEX_PATH.read_text(encoding="utf-8")
-    updated = update_index(original, build_links_markup(repos))
+    newline = "\r\n" if "\r\n" in original else "\n"
+    updated = populate_empty_block(
+        original,
+        build_links_markup(repos, newline),
+        newline,
+    )
 
     if updated != original:
-        INDEX_PATH.write_text(updated, encoding="utf-8")
+        INDEX_PATH.write_bytes(updated.encode("utf-8"))
         print(f"Updated {INDEX_PATH} with {len(repos)} curated GitHub projects.")
     else:
         print("No changes were needed.")
