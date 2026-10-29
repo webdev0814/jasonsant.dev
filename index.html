@@ -285,13 +285,90 @@
 
         <div class="case-list">
           <!-- POSITIONING_PROJECT_LINKS_START -->
-              <span><a href="https://github.com/webdev0814/browser-llm-debate-orchestrator" target="_blank" rel="noreferrer" title="Multi-model debate coordinator with participant selection supporting Gemini, OpenAI, Claude, DeepSeek, and Grok.">browser-llm-debate-orchestrator</a></span>
-              <span><a href="https://github.com/webdev0814/stakeholder-outreach-draft-generator" target="_blank" rel="noreferrer" title="Automated directory cleaning, DNS MX checking, sheets syncing, and throttled outreach draft generation in Gmail.">stakeholder-outreach-draft-generator</a></span>
-              <span><a href="https://github.com/webdev0814/agent-prompt-context-compression" target="_blank" rel="noreferrer" title="Reusable prompt instructions for reducing token usage across agent systems without sacrificing correctness.">agent-prompt-context-compression</a></span>
-              <span><a href="https://github.com/webdev0814/agent-vps-security-hardening" target="_blank" rel="noreferrer" title="VPS security hardening protocols tailored for independent AI agent hosts and deployments.">agent-vps-security-hardening</a></span>
-              <span><a href="https://github.com/webdev0814/single-vm-agent-consolidation" target="_blank" rel="noreferrer" title="Battle-tested guide to merge Hermes Agent and OpenClaw onto a single Oracle Always Free VM with zero downtime.">single-vm-agent-consolidation</a></span>
-              <span><a href="https://github.com/webdev0814/openclaw-to-hermes-orchestrator-migration" target="_blank" rel="noreferrer" title="orchestrator transfer: OpenClaw to Hermes">openclaw-to-hermes-orchestrator-migration</a></span>
-              <!-- POSITIONING_PROJECT_LINKS_END -->
+          <article class="case-study">
+            <header>
+              <span class="case-count">01 / 06</span>
+              <h3>Browser LLM debate orchestrator</h3>
+              <a href="https://github.com/webdev0814/browser-llm-debate-orchestrator" target="_blank" rel="noreferrer">Inspect repository<span class="sr-only">: browser-llm-debate-orchestrator</span></a>
+            </header>
+            <div class="case-flow">
+              <section><h4>Problem</h4><p>Comparing model reasoning manually makes synthesis inconsistent and difficult to repeat.</p></section>
+              <section><h4>Architecture</h4><p>A browser-based coordinator selects participants and structures a multi-model debate across supported providers.</p></section>
+              <section><h4>Governance</h4><p>Explicit participant selection and staged outputs keep model contributions visible for human review.</p></section>
+              <section><h4>Impact</h4><p>Demonstrates a repeatable pattern for comparing competing model responses before a person accepts a conclusion.</p></section>
+            </div>
+          </article>
+
+          <article class="case-study">
+            <header>
+              <span class="case-count">02 / 06</span>
+              <h3>Stakeholder outreach draft generator</h3>
+              <a href="https://github.com/webdev0814/stakeholder-outreach-draft-generator" target="_blank" rel="noreferrer">Inspect repository<span class="sr-only">: stakeholder-outreach-draft-generator</span></a>
+            </header>
+            <div class="case-flow">
+              <section><h4>Problem</h4><p>Directory cleanup, domain checks, spreadsheet coordination, and draft preparation create repetitive outreach work.</p></section>
+              <section><h4>Architecture</h4><p>A staged workflow cleans directory data, checks DNS MX records, synchronizes sheets, and creates throttled Gmail drafts.</p></section>
+              <section><h4>Governance</h4><p>Draft creation preserves a human approval boundary; throttling and validation reduce uncontrolled outbound activity.</p></section>
+              <section><h4>Impact</h4><p>Shows how multiple validation and preparation steps can become one reviewable workflow without auto-sending messages.</p></section>
+            </div>
+          </article>
+
+          <article class="case-study">
+            <header>
+              <span class="case-count">03 / 06</span>
+              <h3>Agent prompt context compression</h3>
+              <a href="https://github.com/webdev0814/agent-prompt-context-compression" target="_blank" rel="noreferrer">Inspect repository<span class="sr-only">: agent-prompt-context-compression</span></a>
+            </header>
+            <div class="case-flow">
+              <section><h4>Problem</h4><p>Long agent instructions consume context and make reusable operational guidance harder to maintain.</p></section>
+              <section><h4>Architecture</h4><p>Reusable instruction patterns compress prompt context while retaining constraints, priorities, and execution guidance.</p></section>
+              <section><h4>Governance</h4><p>Preserved rules and explicit correctness boundaries keep compression from becoming uncontrolled omission.</p></section>
+              <section><h4>Impact</h4><p>Provides an inspectable method for making agent instructions more compact and portable across systems.</p></section>
+            </div>
+          </article>
+
+          <article class="case-study">
+            <header>
+              <span class="case-count">04 / 06</span>
+              <h3>Agent VPS security hardening</h3>
+              <a href="https://github.com/webdev0814/agent-vps-security-hardening" target="_blank" rel="noreferrer">Inspect repository<span class="sr-only">: agent-vps-security-hardening</span></a>
+            </header>
+            <div class="case-flow">
+              <section><h4>Problem</h4><p>Independent agent hosts expand operational exposure when baseline server controls are inconsistent.</p></section>
+              <section><h4>Architecture</h4><p>A hardening protocol organizes host protections for VPS-based AI agent deployments.</p></section>
+              <section><h4>Governance</h4><p>Documented controls make security expectations reviewable, repeatable, and suitable for change tracking.</p></section>
+              <section><h4>Impact</h4><p>Turns host-security knowledge into an actionable deployment reference for independent agent infrastructure.</p></section>
+            </div>
+          </article>
+
+          <article class="case-study">
+            <header>
+              <span class="case-count">05 / 06</span>
+              <h3>Single-VM agent consolidation</h3>
+              <a href="https://github.com/webdev0814/single-vm-agent-consolidation" target="_blank" rel="noreferrer">Inspect repository<span class="sr-only">: single-vm-agent-consolidation</span></a>
+            </header>
+            <div class="case-flow">
+              <section><h4>Problem</h4><p>Running separate agent stacks can add infrastructure and operating complexity to constrained environments.</p></section>
+              <section><h4>Architecture</h4><p>A deployment guide consolidates Hermes Agent and OpenClaw on one Oracle Always Free VM.</p></section>
+              <section><h4>Governance</h4><p>Sequenced migration, service separation, verification, and rollback-aware guidance reduce avoidable transition risk.</p></section>
+              <section><h4>Impact</h4><p>Documents a practical consolidation path that operators can inspect and adapt to a resource-constrained host.</p></section>
+            </div>
+          </article>
+
+          <article class="case-study">
+            <header>
+              <span class="case-count">06 / 06</span>
+              <h3>OpenClaw to Hermes orchestrator migration</h3>
+              <a href="https://github.com/webdev0814/openclaw-to-hermes-orchestrator-migration" target="_blank" rel="noreferrer">Inspect repository<span class="sr-only">: openclaw-to-hermes-orchestrator-migration</span></a>
+            </header>
+            <div class="case-flow">
+              <section><h4>Problem</h4><p>Changing orchestration platforms risks losing configuration knowledge and introducing avoidable service disruption.</p></section>
+              <section><h4>Architecture</h4><p>A migration runbook structures the transfer from OpenClaw to Hermes orchestration.</p></section>
+              <section><h4>Governance</h4><p>Explicit sequencing and verification checkpoints make the transition observable and recoverable.</p></section>
+              <section><h4>Impact</h4><p>Provides a reusable migration pattern for moving agent orchestration responsibilities between platforms.</p></section>
+            </div>
+          </article>
+          <!-- POSITIONING_PROJECT_LINKS_END -->
         </div>
       </section>
 
