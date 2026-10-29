@@ -22,7 +22,6 @@
     if (root.dataset.theme === "light" || root.dataset.theme === "dark") {
       return root.dataset.theme;
     }
-
     return systemTheme.matches ? "dark" : "light";
   };
 
@@ -70,79 +69,6 @@
     updateThemeControl();
   }
 
-  const createSvgElement = (name, attributes = {}) => {
-    const element = document.createElementNS(SVG_NAMESPACE, name);
-
-    Object.entries(attributes).forEach(([attribute, value]) => {
-      element.setAttribute(attribute, String(value));
-    });
-
-    return element;
-  };
-
-  const createHeroArchitecture = () => {
-    const container = document.querySelector(".decision-spine");
-
-    if (!container || container.querySelector(".hero-architecture")) {
-      return;
-    }
-
-    const svg = createSvgElement("svg", {
-      class: "hero-architecture",
-      viewBox: "0 0 70 520",
-      preserveAspectRatio: "none",
-      "aria-hidden": "true",
-      focusable: "false"
-    });
-
-    const trace = createSvgElement("path", {
-      class: "hero-spine-trace",
-      d: "M22 34V130H50V226H22V322H53V418H22V494",
-      pathLength: "1"
-    });
-
-    const branches = [
-      "M22 34H66",
-      "M50 130H66",
-      "M22 226H66",
-      "M53 322H66",
-      "M22 418H66"
-    ];
-
-    svg.append(trace);
-
-    branches.forEach((pathData) => {
-      svg.append(
-        createSvgElement("path", {
-          class: "hero-spine-branch",
-          d: pathData,
-          pathLength: "1"
-        })
-      );
-    });
-
-    [
-      [22, 34, true],
-      [50, 130, false],
-      [22, 226, false],
-      [53, 322, false],
-      [22, 418, false]
-    ].forEach(([cx, cy, decision]) => {
-      svg.append(
-        createSvgElement("circle", {
-          class: `hero-spine-node${decision ? " is-decision" : ""}`,
-          cx,
-          cy,
-          r: decision ? 5 : 4
-        })
-      );
-    });
-
-    container.prepend(svg);
-  };
-
-  createHeroArchitecture();
-
   const compactMobileDiagram = (svg) => {
     const mobileGroup = svg.querySelector(".diagram-mobile");
     const connectors = mobileGroup?.querySelector(".diagram-connectors");
@@ -169,8 +95,11 @@
       }
     });
 
+    const stepHeight = 62;
+    const boxHeight = 44;
+
     nodes.forEach((node, index) => {
-      const y = 12 + index * 70;
+      const y = 12 + index * stepHeight;
       const rect = node.querySelector("rect");
       const textLines = Array.from(node.querySelectorAll("text"));
 
@@ -178,23 +107,22 @@
         rect.setAttribute("x", "35");
         rect.setAttribute("y", String(y));
         rect.setAttribute("width", "290");
-        rect.setAttribute("height", "46");
+        rect.setAttribute("height", String(boxHeight));
       }
 
       textLines.forEach((textLine, lineIndex) => {
         const lineOffset =
-          (lineIndex - (textLines.length - 1) / 2) * 14;
+          (lineIndex - (textLines.length - 1) / 2) * 13;
 
         textLine.setAttribute("x", "180");
-        textLine.setAttribute("y", String(y + 27 + lineOffset));
+        textLine.setAttribute("y", String(y + 26 + lineOffset));
       });
 
       if (index < nodes.length - 1) {
         const connector = document.createElementNS(SVG_NAMESPACE, "path");
-
         connector.setAttribute(
           "d",
-          `M180 ${y + 46}V${12 + (index + 1) * 70}`
+          `M180 ${y + boxHeight}V${12 + (index + 1) * stepHeight}`
         );
 
         if (markerEnd) {
@@ -206,8 +134,8 @@
     });
 
     if (recoveryPath && nodes.length > 2) {
-      const lastCenter = 12 + (nodes.length - 1) * 70 + 23;
-      const secondCenter = 12 + 70 + 23;
+      const lastCenter = 12 + (nodes.length - 1) * stepHeight + 22;
+      const secondCenter = 12 + stepHeight + 22;
 
       recoveryPath.setAttribute(
         "d",
@@ -218,6 +146,9 @@
         recoveryPath.setAttribute("marker-end", markerEnd);
       }
     }
+
+    const totalHeight = 12 + (nodes.length - 1) * stepHeight + boxHeight + 12;
+    svg.dataset.mobileHeight = String(totalHeight);
   };
 
   const caseStudies = Array.from(document.querySelectorAll(".case-study"));
@@ -243,9 +174,10 @@
     const mobile = mobileDiagramQuery.matches;
 
     document.querySelectorAll(".case-diagram svg").forEach((diagram) => {
+      const mobileHeight = diagram.dataset.mobileHeight || "330";
       diagram.setAttribute(
         "viewBox",
-        mobile ? "0 0 360 420" : "0 0 960 240"
+        mobile ? `0 0 360 ${mobileHeight}` : "0 0 960 240"
       );
     });
   };
@@ -271,9 +203,7 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && mobileMenu.open) {
         mobileMenu.open = false;
-
         const summary = mobileMenu.querySelector("summary");
-
         if (summary) {
           summary.focus();
         }
@@ -297,9 +227,7 @@
       });
 
       panels.forEach((panel) => {
-        const active =
-          panel.id === selectedTab.getAttribute("aria-controls");
-
+        const active = panel.id === selectedTab.getAttribute("aria-controls");
         panel.hidden = !active;
         panel.classList.toggle("is-active", active);
       });
@@ -327,9 +255,11 @@
 
         switch (event.key) {
           case "ArrowRight":
+          case "ArrowDown":
             nextIndex = (index + 1) % tabs.length;
             break;
           case "ArrowLeft":
+          case "ArrowUp":
             nextIndex = (index - 1 + tabs.length) % tabs.length;
             break;
           case "Home":
@@ -348,9 +278,8 @@
     });
 
     const initiallySelected =
-      tabs.find(
-        (tab) => tab.getAttribute("aria-selected") === "true"
-      ) || tabs[0];
+      tabs.find((tab) => tab.getAttribute("aria-selected") === "true") ||
+      tabs[0];
 
     commitTabChange(initiallySelected);
     tabGroup.classList.add("tabs-ready");
@@ -391,10 +320,7 @@
 
       return Math.min(
         Number.isFinite(maximum) ? maximum : value,
-        Math.max(
-          Number.isFinite(minimum) ? minimum : 0,
-          value
-        )
+        Math.max(Number.isFinite(minimum) ? minimum : 0, value)
       );
     };
 
