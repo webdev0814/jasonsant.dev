@@ -16,8 +16,21 @@
     <meta name="twitter:title" content="Jason Agentic | Enterprise AI Solutions Architect">
     <meta name="twitter:description" content="Governed AI systems, executable roadmaps, and enterprise delivery leadership.">
     <meta name="twitter:image" content="https://jasonsant.dev/assets/jason-agentic-headshot.jpg">
-    <meta name="theme-color" content="#101820">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23101820'/%3E%3Cpath d='M14 16h12v22c0 8-5 12-13 12v-9c3 0 4-1 4-4V16h-3zm17 25c4 2 8 3 11 3 3 0 5-1 5-3 0-5-17-2-17-15 0-7 6-11 14-11 5 0 10 1 14 3l-4 8c-4-2-7-2-10-2-2 0-4 1-4 3 0 4 17 2 17 14 0 8-6 12-15 12-6 0-11-1-15-4l4-8z' fill='%23ffb000'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#f7f6f2">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23121a1d'/%3E%3Cpath d='M15 14h13v25c0 8-5 12-14 12v-9c4 0 5-1 5-5V22h-4zm17 28c4 2 8 3 11 3s5-1 5-3c0-5-17-2-17-15 0-8 6-12 15-12 5 0 10 1 14 3l-4 8c-4-2-7-2-10-2-3 0-5 1-5 3 0 4 18 2 18 15 0 8-7 13-16 13-6 0-12-2-16-4z' fill='%23ff8272'/%3E%3C/svg%3E">
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("jasonsant-theme");
+          if (saved === "light" || saved === "dark") {
+            document.documentElement.dataset.theme = saved;
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400..600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=20261101">
     <script type="application/ld+json">
       {
@@ -25,20 +38,7 @@
         "@type": "Person",
         "name": "Jason Agentic",
         "url": "https://jasonsant.dev/",
-        "image": "https://jasonsant.dev/assets/jason-agentic-headshot.jpg",
         "jobTitle": "Enterprise AI Solutions Architect and Principal Delivery Leader",
-        "description": "Enterprise AI, Azure, Microsoft Fabric, technical program delivery, and business analysis leader.",
-        "knowsAbout": [
-          "Agentic AI",
-          "Azure",
-          "Microsoft Fabric",
-          "Salesforce",
-          "SAFe",
-          "Technical program management",
-          "Business analysis",
-          "Section 508",
-          "HIPAA"
-        ],
         "sameAs": [
           "https://github.com/webdev0814",
           "https://www.linkedin.com/in/jasonsantpmp"
@@ -51,13 +51,8 @@
         "@type": "ProfessionalService",
         "name": "Corporate Consulting LLC",
         "url": "https://jasonsant.dev/",
-        "description": "Enterprise AI architecture, automation, cloud data, and principal delivery consulting.",
-        "areaServed": "United States",
-        "founder": {
-          "@type": "Person",
-          "name": "Jason Agentic"
-        },
-        "priceRange": "$110–$160/hr"
+        "priceRange": "$110–$160/hr",
+        "areaServed": "United States"
       }
     </script>
   </head>
@@ -65,95 +60,113 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <header class="site-header">
-      <a class="brand" href="#top">
-        <span class="brand-mark" aria-hidden="true">JS</span>
-        <span class="brand-copy">
-          <strong>Jason Agentic</strong>
-          <small>Architecture · Governance · Delivery</small>
-        </span>
-      </a>
+      <div class="header-grid">
+        <a class="brand" href="#top" aria-label="Jason Agentic, home">
+          <span class="brand-mark" aria-hidden="true">JA</span>
+          <span>Jason Agentic</span>
+        </a>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-        <span class="nav-toggle-label">Menu</span>
-        <span class="nav-toggle-lines" aria-hidden="true"></span>
-      </button>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#role-match">Role match</a>
+          <a href="#calculator">Value model</a>
+          <a href="#case-studies">Case studies</a>
+          <a href="#credentials">Credentials</a>
+          <a href="https://cal.com/jason-sant-tzco13/10min" target="_blank" rel="noopener">Book a call</a>
+        </nav>
 
-      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
-        <a href="#role-match">Role match</a>
-        <a href="#calculator">Value estimator</a>
-        <a href="#case-studies">Case studies</a>
-        <a href="#credentials">Credentials</a>
-        <a class="nav-book" href="https://cal.com/jason-sant-tzco13/10min" target="_blank" rel="noopener">Book a call</a>
-      </nav>
+        <details class="mobile-menu">
+          <summary>Menu</summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#role-match">Role match</a>
+            <a href="#calculator">Value model</a>
+            <a href="#case-studies">Case studies</a>
+            <a href="#credentials">Credentials</a>
+            <a href="https://cal.com/jason-sant-tzco13/10min" target="_blank" rel="noopener">Book a call</a>
+          </nav>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle class="sun-core" cx="12" cy="12" r="4"></circle>
+            <path class="sun-rays" d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path>
+            <path class="moon-mark" d="M19 15.2A8 8 0 0 1 8.8 5a7.1 7.1 0 1 0 10.2 10.2Z"></path>
+          </svg>
+        </button>
+      </div>
     </header>
 
     <main id="main-content">
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-trace" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
+        <div class="layout-grid hero-grid">
+          <div class="hero-identity">
+            <p>Jason Agentic — Enterprise AI Solutions Architect and Principal Delivery Leader</p>
+            <p class="commercial-line">Available for select contracts · <strong>$110–$160/hr</strong> · C2C or W-2</p>
+          </div>
 
-        <div class="hero-layout">
           <div class="hero-copy">
-            <p class="availability">Available for select enterprise contracts · $110–$160/hr · C2C or W-2</p>
-            <h1 id="hero-title">Governed AI systems.<br>Delivery that survives contact with the enterprise.</h1>
-            <p class="hero-lede">
-              Jason connects AI architecture, requirements, controls, and program execution—so
-              ambitious initiatives become adopted workflows instead of stranded pilots.
-            </p>
+            <h1 id="hero-title">Governed AI for the work after the demo.</h1>
+            <p class="hero-lede">Jason connects architecture, requirements, controls, roadmaps, and adoption so ambitious transformation goals become governed systems and executable delivery—not stranded pilots.</p>
             <div class="hero-actions" aria-label="Primary actions">
               <a class="button button-primary" href="https://cal.com/jason-sant-tzco13/10min" target="_blank" rel="noopener">Book a call</a>
               <a class="button button-secondary" href="#case-studies">See case studies</a>
             </div>
           </div>
 
-          <aside class="engagement-note" aria-label="Engagement availability">
-            <img src="assets/jason-agentic-headshot.jpg?v=20260602-2" alt="Jason Agentic">
-            <div>
-              <p>Enterprise AI Solutions Architect</p>
-              <p>Principal Delivery Leader</p>
-              <strong>$110–$160/hr</strong>
-              <span>C2C or W-2</span>
-            </div>
+          <aside class="decision-spine" aria-label="From business intent to delivery">
+            <span class="spine-line" aria-hidden="true"></span>
+            <ol>
+              <li class="is-current"><span>Business intent</span></li>
+              <li><span>Requirements</span></li>
+              <li><span>Architecture</span></li>
+              <li><span>Controls</span></li>
+              <li><span>Delivery</span></li>
+            </ol>
           </aside>
         </div>
-
-        <dl class="facts-ledger" aria-label="Fast facts">
-          <div>
-            <dt>Rate</dt>
-            <dd>$110–$160/hr</dd>
-          </div>
-          <div>
-            <dt>Contract vehicles</dt>
-            <dd>C2C via Corporate Consulting LLC (Wyoming LLC) or W-2</dd>
-          </div>
-          <div>
-            <dt>Insured</dt>
-            <dd>Hanover business-owners/GL + Hartford Tech E&amp;O</dd>
-          </div>
-          <div>
-            <dt>Sectors</dt>
-            <dd>NYC HPD · State &amp; local government</dd>
-          </div>
-          <div>
-            <dt>Compliance context</dt>
-            <dd>HIPAA · Section 508</dd>
-          </div>
-          <div>
-            <dt>Credentials</dt>
-            <dd>NVIDIA AI Agents · Azure Solutions Architect Expert · Azure Data Engineer · PMP · SAFe 6 · CBAP · Salesforce Data Architect</dd>
-          </div>
-        </dl>
       </section>
 
-      <section class="role-match section" id="role-match" aria-labelledby="role-heading">
-        <div class="section-intro">
-          <p class="section-index">Requisition match</p>
-          <h2 id="role-heading">Four ways to deploy the same cross-functional depth.</h2>
-          <p>Choose the closest requisition to see the capabilities and evidence most relevant to the hiring decision.</p>
+      <section class="facts-section" aria-labelledby="facts-heading">
+        <div class="layout-grid">
+          <h2 class="sr-only" id="facts-heading">Commercial and enterprise facts</h2>
+          <dl class="facts-ledger">
+            <div class="fact-rate">
+              <dt>Rate</dt>
+              <dd>$110–$160/hr</dd>
+            </div>
+            <div class="fact-contract">
+              <dt>Contract vehicles</dt>
+              <dd>C2C through Corporate Consulting LLC, a Wyoming LLC, or W-2 contract engagements</dd>
+            </div>
+            <div class="fact-insurance">
+              <dt>Insurance</dt>
+              <dd>Hanover business-owners/GL and Hartford Tech E&amp;O</dd>
+            </div>
+            <div class="fact-sectors">
+              <dt>Sectors</dt>
+              <dd>NYC HPD · State and local government</dd>
+            </div>
+            <div class="fact-compliance">
+              <dt>Compliance context</dt>
+              <dd>HIPAA · Section 508</dd>
+            </div>
+            <div class="fact-credentials">
+              <dt>Credentials</dt>
+              <dd>NVIDIA AI Agents · Azure Solutions Architect Expert · Azure Data Engineer · PMP · SAFe 6 · CBAP · Salesforce Data Architect</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="role-match section-block" id="role-match" aria-labelledby="role-heading">
+        <div class="layout-grid section-heading">
+          <div class="heading-main">
+            <p class="section-label">Requisition match</p>
+            <h2 id="role-heading">Cross-functional depth, aligned to the decision at hand.</h2>
+          </div>
+          <p class="margin-note">Select the closest requisition. The evidence changes emphasis; the governing discipline remains consistent.</p>
         </div>
 
-        <div class="tabs" data-tabs>
+        <div class="layout-grid tabs" data-tabs>
           <div class="tab-list" role="tablist" aria-label="Target role">
             <button id="tab-ai" role="tab" aria-selected="true" aria-controls="panel-ai" tabindex="0">AI Solutions Architect</button>
             <button id="tab-tpm" role="tab" aria-selected="false" aria-controls="panel-tpm" tabindex="-1">TPM / SAFe RTE</button>
@@ -162,74 +175,70 @@
           </div>
 
           <div class="tab-panels">
-            <div id="panel-ai" class="tab-panel" role="tabpanel" aria-labelledby="tab-ai" tabindex="0">
-              <div>
-                <p class="role-number" aria-hidden="true">01</p>
+            <section id="panel-ai" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-ai" tabindex="0">
+              <header>
                 <h3>AI Solutions Architect</h3>
                 <p>Translate operating needs into governed agent workflows, model boundaries, human review points, deployment controls, and an executable adoption path.</p>
-              </div>
+              </header>
               <dl class="role-evidence">
                 <div><dt>Architecture</dt><dd>Agent orchestration, prompt systems, workflow automation, Azure-aligned integration</dd></div>
                 <div><dt>Governance</dt><dd>Human-in-the-loop review, access boundaries, auditability, requirements traceability</dd></div>
                 <div><dt>Evidence</dt><dd>Multi-model orchestration, context compression, agent-host hardening, migration runbooks</dd></div>
                 <div><dt>Credentials</dt><dd>NVIDIA AI Agents · Azure Solutions Architect Expert · CBAP</dd></div>
               </dl>
-            </div>
+            </section>
 
-            <div id="panel-tpm" class="tab-panel" role="tabpanel" aria-labelledby="tab-tpm" tabindex="0" hidden>
-              <div>
-                <p class="role-number" aria-hidden="true">02</p>
+            <section id="panel-tpm" class="tab-panel" role="tabpanel" aria-labelledby="tab-tpm" tabindex="0">
+              <header>
                 <h3>TPM / SAFe RTE</h3>
                 <p>Turn executive intent into roadmaps, program increments, decision forums, dependencies, and delivery evidence across complex stakeholder groups.</p>
-              </div>
+              </header>
               <dl class="role-evidence">
                 <div><dt>Leadership</dt><dd>Cross-functional planning, delivery flow, risk escalation, stakeholder alignment</dd></div>
                 <div><dt>Operating model</dt><dd>Backlog governance, PI planning, program controls, outcome-oriented reporting</dd></div>
                 <div><dt>Environments</dt><dd>NYC HPD, state and local agencies, regulated enterprise programs</dd></div>
                 <div><dt>Credentials</dt><dd>PMP · SAFe 6 · Certified ScrumMaster</dd></div>
               </dl>
-            </div>
+            </section>
 
-            <div id="panel-bsa" class="tab-panel" role="tabpanel" aria-labelledby="tab-bsa" tabindex="0" hidden>
-              <div>
-                <p class="role-number" aria-hidden="true">03</p>
+            <section id="panel-bsa" class="tab-panel" role="tabpanel" aria-labelledby="tab-bsa" tabindex="0">
+              <header>
                 <h3>Lead AI BSA</h3>
                 <p>Define the process, data, controls, exception paths, and acceptance criteria that make AI-enabled change usable and governable.</p>
-              </div>
+              </header>
               <dl class="role-evidence">
                 <div><dt>Analysis</dt><dd>Current/future-state modeling, requirements, source-to-target mapping, process redesign</dd></div>
                 <div><dt>AI readiness</dt><dd>Use-case framing, prompt context, review boundaries, operational exception handling</dd></div>
                 <div><dt>Platforms</dt><dd>Salesforce, S/4HANA, analytics, agentic workflow systems</dd></div>
                 <div><dt>Credentials</dt><dd>CBAP · Salesforce Data Architect · Certified Analytics Professional</dd></div>
               </dl>
-            </div>
+            </section>
 
-            <div id="panel-azure" class="tab-panel" role="tabpanel" aria-labelledby="tab-azure" tabindex="0" hidden>
-              <div>
-                <p class="role-number" aria-hidden="true">04</p>
+            <section id="panel-azure" class="tab-panel" role="tabpanel" aria-labelledby="tab-azure" tabindex="0">
+              <header>
                 <h3>Azure / Fabric Lead</h3>
                 <p>Connect cloud architecture, data engineering, analytics requirements, delivery sequencing, and governance across the Microsoft ecosystem.</p>
-              </div>
+              </header>
               <dl class="role-evidence">
                 <div><dt>Cloud</dt><dd>Azure solution architecture, platform modernization, secure workload planning</dd></div>
                 <div><dt>Data</dt><dd>Microsoft Fabric, data engineering, analytics, lineage-oriented documentation</dd></div>
                 <div><dt>Delivery</dt><dd>Technical roadmaps, dependencies, stakeholder decisions, implementation-ready backlogs</dd></div>
                 <div><dt>Credentials</dt><dd>Azure Solutions Architect Expert · Azure Data Engineer · PMP</dd></div>
               </dl>
-            </div>
+            </section>
           </div>
         </div>
       </section>
 
-      <section class="calculator-section" id="calculator" aria-labelledby="calculator-heading">
-        <div class="calculator-heading">
-          <p class="section-index">Planning model</p>
-          <h2 id="calculator-heading">Price the manual work before automating it.</h2>
-          <p>This estimator makes assumptions visible. It is a planning aid, not a guarantee of savings or financial return.</p>
-        </div>
+      <section class="calculator-section section-block" id="calculator" aria-labelledby="calculator-heading">
+        <div class="layout-grid calculator-layout">
+          <div class="calculator-intro">
+            <p class="section-label">Planning model</p>
+            <h2 id="calculator-heading">Price the manual work before automating it.</h2>
+            <p>This estimator makes assumptions visible. The working year is fixed at 48 weeks.</p>
+          </div>
 
-        <form class="calculator" id="roi-calculator">
-          <div class="calculator-inputs">
+          <form class="calculator-inputs" id="roi-calculator">
             <div class="field">
               <label for="team-size">Team size</label>
               <input id="team-size" name="teamSize" type="number" min="1" max="10000" step="1" value="10" inputmode="numeric">
@@ -243,19 +252,19 @@
               <input id="blended-rate" name="blendedRate" type="number" min="0" max="5000" step="1" value="120" inputmode="decimal">
             </div>
             <div class="field field-range">
-              <div class="range-label">
-                <label for="saved-share">Estimated share of hours saved</label>
+              <div class="range-heading">
+                <label for="saved-share">Estimated share of manual hours saved</label>
                 <output id="saved-share-value" for="saved-share">40%</output>
               </div>
               <input id="saved-share" name="savedShare" type="range" min="0" max="100" step="5" value="40">
             </div>
-          </div>
+          </form>
 
           <div class="calculator-output" aria-live="polite" aria-atomic="true">
-            <p class="formula" id="formula">10 × 5 × $120 × 48 weeks</p>
+            <p class="formula" id="formula">10 × 5 × $120 × 48 = $288,000</p>
             <div class="primary-result">
-              <span>Annual manual cost</span>
-              <output id="annual-cost">$288,000</output>
+              <span>Annual base manual cost</span>
+              <output id="annual-cost" for="team-size weekly-hours blended-rate" form="roi-calculator">$288,000</output>
             </div>
             <dl>
               <div>
@@ -263,27 +272,29 @@
                 <dd id="annual-hours">2,400</dd>
               </div>
               <div>
-                <dt>Estimated hours saved</dt>
+                <dt>Estimated annual hours saved</dt>
                 <dd id="hours-saved">960</dd>
               </div>
               <div>
-                <dt>Estimated annual value</dt>
+                <dt>Estimated annual value of hours saved</dt>
                 <dd id="value-saved">$115,200</dd>
               </div>
             </dl>
-            <p class="estimate-note">Estimate based on 48 working weeks and the selected hours-saved share. Validate process demand, control requirements, implementation cost, and adoption before making an investment decision.</p>
+            <p class="estimate-note">Planning estimates only—not guaranteed savings or financial return. Validate process demand, controls, implementation cost, and adoption before making an investment decision.</p>
           </div>
-        </form>
+        </div>
       </section>
 
-      <section class="case-studies section" id="case-studies" aria-labelledby="case-heading">
-        <div class="section-intro case-intro">
-          <p class="section-index">Public implementation evidence</p>
-          <h2 id="case-heading">Six systems. Every claim inspectable.</h2>
-          <p>These repositories show working patterns and delivery artifacts. Impact statements describe demonstrated capability, not client results.</p>
+      <section class="case-studies section-block" id="case-studies" aria-labelledby="case-heading">
+        <div class="layout-grid section-heading">
+          <div class="heading-main">
+            <p class="section-label">Public implementation evidence</p>
+            <h2 id="case-heading">Six systems. Every claim inspectable.</h2>
+          </div>
+          <p class="margin-note">These repositories show working patterns and delivery artifacts. Impact describes demonstrated capability, not client results.</p>
         </div>
 
-        <div class="case-list">
+        <div class="layout-grid case-list">
           <!-- POSITIONING_PROJECT_LINKS_START -->
           <article class="case-study">
             <header>
@@ -369,70 +380,269 @@
             </div>
           </article>
           <!-- POSITIONING_PROJECT_LINKS_END -->
+          <template id="case-diagram-1">
+            <figure class="case-diagram">
+              <figcaption>Architecture view: orchestration preserves distinct model responses before synthesis and human acceptance.</figcaption>
+              <svg viewBox="0 0 960 240" role="img" aria-labelledby="diagram-title-1 diagram-desc-1" preserveAspectRatio="xMidYMid meet">
+                <title id="diagram-title-1">Browser LLM debate orchestrator architecture</title>
+                <desc id="diagram-desc-1">A prompt enters orchestration, branches to multiple model responses, moves through synthesis, and ends at a human acceptance gate.</desc>
+                <defs><marker id="arrow-1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 8 4 0 8Z"></path></marker></defs>
+                <g class="diagram-wide">
+                  <g class="diagram-connectors">
+                    <path d="M150 120H225" marker-end="url(#arrow-1)"></path>
+                    <path d="M365 120H420M420 120V54H485M420 120H485M420 120V186H485"></path>
+                    <path d="M625 54H660V120H700M625 120H700M625 186H660V120" marker-end="url(#arrow-1)"></path>
+                    <path d="M820 120H875" marker-end="url(#arrow-1)"></path>
+                  </g>
+                  <g class="diagram-node"><rect x="20" y="88" width="130" height="64"></rect><text x="85" y="124">Prompt</text></g>
+                  <g class="diagram-node"><rect x="225" y="82" width="140" height="76"></rect><text x="295" y="116">Debate</text><text x="295" y="136">orchestration</text></g>
+                  <g class="diagram-node"><rect x="485" y="24" width="140" height="58"></rect><text x="555" y="57">Model response A</text></g>
+                  <g class="diagram-node"><rect x="485" y="91" width="140" height="58"></rect><text x="555" y="124">Model response B</text></g>
+                  <g class="diagram-node"><rect x="485" y="158" width="140" height="58"></rect><text x="555" y="191">Model response C</text></g>
+                  <g class="diagram-node"><rect x="700" y="88" width="120" height="64"></rect><text x="760" y="124">Synthesis</text></g>
+                  <g class="diagram-node diagram-control"><rect x="875" y="78" width="75" height="84"></rect><text x="912" y="113">Human</text><text x="912" y="133">acceptance</text></g>
+                </g>
+                <g class="diagram-mobile">
+                  <g class="diagram-connectors"><path d="M180 62V112M180 170V220M180 278V328M180 386V436M180 494V544" marker-end="url(#arrow-1)"></path></g>
+                  <g class="diagram-node"><rect x="55" y="12" width="250" height="50"></rect><text x="180" y="42">Prompt</text></g>
+                  <g class="diagram-node"><rect x="55" y="112" width="250" height="58"></rect><text x="180" y="146">Debate orchestration</text></g>
+                  <g class="diagram-node"><rect x="35" y="220" width="290" height="58"></rect><text x="180" y="254">Multiple model responses</text></g>
+                  <g class="diagram-node"><rect x="55" y="328" width="250" height="58"></rect><text x="180" y="362">Visible synthesis</text></g>
+                  <g class="diagram-node diagram-control"><rect x="55" y="436" width="250" height="58"></rect><text x="180" y="470">Human acceptance gate</text></g>
+                  <g class="diagram-node"><rect x="55" y="544" width="250" height="58"></rect><text x="180" y="578">Accepted conclusion</text></g>
+                </g>
+              </svg>
+            </figure>
+          </template>
+
+          <template id="case-diagram-2">
+            <figure class="case-diagram">
+              <figcaption>Architecture view: validated data becomes a draft, but no message crosses the human approval boundary automatically.</figcaption>
+              <svg viewBox="0 0 960 240" role="img" aria-labelledby="diagram-title-2 diagram-desc-2" preserveAspectRatio="xMidYMid meet">
+                <title id="diagram-title-2">Stakeholder outreach draft generator architecture</title>
+                <desc id="diagram-desc-2">Directory and sheet data moves through cleanup, MX validation, draft generation, Gmail drafts, and a human approval boundary. The workflow does not auto-send.</desc>
+                <defs><marker id="arrow-2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 8 4 0 8Z"></path></marker></defs>
+                <g class="diagram-wide">
+                  <g class="diagram-connectors">
+                    <path d="M145 120H180M310 120H345M475 120H510M640 120H675M805 120H845" marker-end="url(#arrow-2)"></path>
+                  </g>
+                  <g class="diagram-node"><rect x="15" y="86" width="130" height="68"></rect><text x="80" y="113">Directory /</text><text x="80" y="135">sheet data</text></g>
+                  <g class="diagram-node"><rect x="180" y="86" width="130" height="68"></rect><text x="245" y="124">Cleanup</text></g>
+                  <g class="diagram-node"><rect x="345" y="86" width="130" height="68"></rect><text x="410" y="113">MX</text><text x="410" y="135">validation</text></g>
+                  <g class="diagram-node"><rect x="510" y="86" width="130" height="68"></rect><text x="575" y="113">Draft</text><text x="575" y="135">generation</text></g>
+                  <g class="diagram-node"><rect x="675" y="86" width="130" height="68"></rect><text x="740" y="113">Gmail</text><text x="740" y="135">drafts</text></g>
+                  <g class="diagram-node diagram-control"><rect x="845" y="70" width="105" height="100"></rect><text x="897" y="105">Human</text><text x="897" y="125">approval</text><text class="diagram-small" x="897" y="148">No auto-send</text></g>
+                </g>
+                <g class="diagram-mobile">
+                  <g class="diagram-connectors"><path d="M180 62V104M180 162V204M180 262V304M180 362V404M180 462V504" marker-end="url(#arrow-2)"></path></g>
+                  <g class="diagram-node"><rect x="45" y="12" width="270" height="50"></rect><text x="180" y="42">Directory / sheet data</text></g>
+                  <g class="diagram-node"><rect x="45" y="104" width="270" height="58"></rect><text x="180" y="138">Cleanup</text></g>
+                  <g class="diagram-node"><rect x="45" y="204" width="270" height="58"></rect><text x="180" y="238">MX validation</text></g>
+                  <g class="diagram-node"><rect x="45" y="304" width="270" height="58"></rect><text x="180" y="338">Draft generation</text></g>
+                  <g class="diagram-node"><rect x="45" y="404" width="270" height="58"></rect><text x="180" y="438">Gmail drafts</text></g>
+                  <g class="diagram-node diagram-control"><rect x="45" y="504" width="270" height="78"></rect><text x="180" y="536">Human approval</text><text class="diagram-small" x="180" y="560">No auto-send boundary</text></g>
+                </g>
+              </svg>
+            </figure>
+          </template>
+
+          <template id="case-diagram-3">
+            <figure class="case-diagram">
+              <figcaption>Architecture view: constraints survive compression because the compact context is compared with its source before runtime use.</figcaption>
+              <svg viewBox="0 0 960 240" role="img" aria-labelledby="diagram-title-3 diagram-desc-3" preserveAspectRatio="xMidYMid meet">
+                <title id="diagram-title-3">Agent prompt context compression architecture</title>
+                <desc id="diagram-desc-3">Long operational instructions move through constraint extraction and context compression, then through validation comparison before reaching the agent runtime.</desc>
+                <defs><marker id="arrow-3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 8 4 0 8Z"></path></marker></defs>
+                <g class="diagram-wide">
+                  <g class="diagram-connectors"><path d="M175 120H215M370 120H410M565 120H605M775 120H820" marker-end="url(#arrow-3)"></path></g>
+                  <g class="diagram-node"><rect x="10" y="82" width="165" height="76"></rect><text x="92" y="113">Long operational</text><text x="92" y="135">instructions</text></g>
+                  <g class="diagram-node"><rect x="215" y="82" width="155" height="76"></rect><text x="292" y="113">Constraint</text><text x="292" y="135">extraction</text></g>
+                  <g class="diagram-node"><rect x="410" y="82" width="155" height="76"></rect><text x="487" y="113">Compressed</text><text x="487" y="135">context</text></g>
+                  <g class="diagram-node diagram-control"><rect x="605" y="72" width="170" height="96"></rect><text x="690" y="111">Validation</text><text x="690" y="133">comparison</text></g>
+                  <g class="diagram-node"><rect x="820" y="82" width="130" height="76"></rect><text x="885" y="113">Agent</text><text x="885" y="135">runtime</text></g>
+                </g>
+                <g class="diagram-mobile">
+                  <g class="diagram-connectors"><path d="M180 72V116M180 174V218M180 276V320M180 378V422" marker-end="url(#arrow-3)"></path></g>
+                  <g class="diagram-node"><rect x="35" y="12" width="290" height="60"></rect><text x="180" y="47">Long operational instructions</text></g>
+                  <g class="diagram-node"><rect x="35" y="116" width="290" height="58"></rect><text x="180" y="150">Constraint extraction</text></g>
+                  <g class="diagram-node"><rect x="35" y="218" width="290" height="58"></rect><text x="180" y="252">Compressed context</text></g>
+                  <g class="diagram-node diagram-control"><rect x="35" y="320" width="290" height="58"></rect><text x="180" y="354">Validation comparison</text></g>
+                  <g class="diagram-node"><rect x="35" y="422" width="290" height="58"></rect><text x="180" y="456">Agent runtime</text></g>
+                </g>
+              </svg>
+            </figure>
+          </template>
+
+          <template id="case-diagram-4">
+            <figure class="case-diagram">
+              <figcaption>Architecture view: access, services, secrets, and logging are governed as reviewable host boundaries.</figcaption>
+              <svg viewBox="0 0 960 240" role="img" aria-labelledby="diagram-title-4 diagram-desc-4" preserveAspectRatio="xMidYMid meet">
+                <title id="diagram-title-4">Agent VPS security hardening architecture</title>
+                <desc id="diagram-desc-4">An agent host is protected by an access boundary, service controls, and a secrets and logging boundary before a hardened baseline is reviewed.</desc>
+                <defs><marker id="arrow-4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 8 4 0 8Z"></path></marker></defs>
+                <g class="diagram-wide">
+                  <g class="diagram-connectors"><path d="M170 120H220M370 120H420M570 120H620M790 120H835" marker-end="url(#arrow-4)"></path></g>
+                  <g class="diagram-node"><rect x="20" y="84" width="150" height="72"></rect><text x="95" y="124">Agent host</text></g>
+                  <g class="diagram-node diagram-control"><rect x="220" y="74" width="150" height="92"></rect><text x="295" y="113">Access</text><text x="295" y="135">boundary</text></g>
+                  <g class="diagram-node"><rect x="420" y="84" width="150" height="72"></rect><text x="495" y="113">Service</text><text x="495" y="135">controls</text></g>
+                  <g class="diagram-node diagram-control"><rect x="620" y="74" width="170" height="92"></rect><text x="705" y="111">Secrets / logging</text><text x="705" y="134">boundary</text></g>
+                  <g class="diagram-node"><rect x="835" y="74" width="115" height="92"></rect><text x="892" y="111">Hardened</text><text x="892" y="133">baseline</text></g>
+                </g>
+                <g class="diagram-mobile">
+                  <g class="diagram-connectors"><path d="M180 72V116M180 174V218M180 276V320M180 378V422" marker-end="url(#arrow-4)"></path></g>
+                  <g class="diagram-node"><rect x="45" y="12" width="270" height="60"></rect><text x="180" y="47">Agent host</text></g>
+                  <g class="diagram-node diagram-control"><rect x="45" y="116" width="270" height="58"></rect><text x="180" y="150">Access boundary</text></g>
+                  <g class="diagram-node"><rect x="45" y="218" width="270" height="58"></rect><text x="180" y="252">Service controls</text></g>
+                  <g class="diagram-node diagram-control"><rect x="45" y="320" width="270" height="58"></rect><text x="180" y="354">Secrets / logging boundary</text></g>
+                  <g class="diagram-node"><rect x="45" y="422" width="270" height="58"></rect><text x="180" y="456">Reviewable hardened baseline</text></g>
+                </g>
+              </svg>
+            </figure>
+          </template>
+
+          <template id="case-diagram-5">
+            <figure class="case-diagram">
+              <figcaption>Architecture view: consolidation preserves service separation, verification, and a visible rollback path.</figcaption>
+              <svg viewBox="0 0 960 240" role="img" aria-labelledby="diagram-title-5 diagram-desc-5" preserveAspectRatio="xMidYMid meet">
+                <title id="diagram-title-5">Single-VM agent consolidation architecture</title>
+                <desc id="diagram-desc-5">Separate agent services enter a migration sequence, become isolated services on one VM, pass verification, and retain a rollback path.</desc>
+                <defs><marker id="arrow-5" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 8 4 0 8Z"></path></marker></defs>
+                <g class="diagram-wide">
+                  <g class="diagram-connectors">
+                    <path d="M155 72H205V120H245M155 168H205V120M390 120H440M630 120H680M820 120H875" marker-end="url(#arrow-5)"></path>
+                    <path class="accent-path" d="M875 160V212H315V160" marker-end="url(#arrow-5)"></path>
+                  </g>
+                  <g class="diagram-node"><rect x="20" y="42" width="135" height="58"></rect><text x="87" y="76">Agent service A</text></g>
+                  <g class="diagram-node"><rect x="20" y="140" width="135" height="58"></rect><text x="87" y="174">Agent service B</text></g>
+                  <g class="diagram-node"><rect x="245" y="82" width="145" height="76"></rect><text x="317" y="113">Migration</text><text x="317" y="135">sequence</text></g>
+                  <g class="diagram-node diagram-control"><rect x="440" y="70" width="190" height="100"></rect><text x="535" y="108">Service separation</text><text x="535" y="132">on one VM</text></g>
+                  <g class="diagram-node"><rect x="680" y="82" width="140" height="76"></rect><text x="750" y="124">Verification</text></g>
+                  <g class="diagram-node diagram-control"><rect x="875" y="82" width="75" height="76"></rect><text x="912" y="113">Go /</text><text x="912" y="135">rollback</text></g>
+                </g>
+                <g class="diagram-mobile">
+                  <g class="diagram-connectors"><path d="M180 72V116M180 174V218M180 276V320M180 378V422" marker-end="url(#arrow-5)"></path><path class="accent-path" d="M65 451H20V145H65" marker-end="url(#arrow-5)"></path></g>
+                  <g class="diagram-node"><rect x="35" y="12" width="290" height="60"></rect><text x="180" y="47">Separate agent services</text></g>
+                  <g class="diagram-node"><rect x="35" y="116" width="290" height="58"></rect><text x="180" y="150">Migration sequence</text></g>
+                  <g class="diagram-node diagram-control"><rect x="35" y="218" width="290" height="58"></rect><text x="180" y="252">Separated services on one VM</text></g>
+                  <g class="diagram-node"><rect x="35" y="320" width="290" height="58"></rect><text x="180" y="354">Verification</text></g>
+                  <g class="diagram-node diagram-control"><rect x="35" y="422" width="290" height="58"></rect><text x="180" y="456">Cutover or rollback</text></g>
+                </g>
+              </svg>
+            </figure>
+          </template>
+
+          <template id="case-diagram-6">
+            <figure class="case-diagram">
+              <figcaption>Architecture view: configuration mapping and verification govern cutover, with recovery kept explicit.</figcaption>
+              <svg viewBox="0 0 960 240" role="img" aria-labelledby="diagram-title-6 diagram-desc-6" preserveAspectRatio="xMidYMid meet">
+                <title id="diagram-title-6">OpenClaw to Hermes orchestrator migration architecture</title>
+                <desc id="diagram-desc-6">Existing configuration is mapped into Hermes orchestration, verified at a gate, and cut over with a visible recovery path.</desc>
+                <defs><marker id="arrow-6" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 8 4 0 8Z"></path></marker></defs>
+                <g class="diagram-wide">
+                  <g class="diagram-connectors">
+                    <path d="M180 120H225M370 120H415M585 120H630M785 120H835" marker-end="url(#arrow-6)"></path>
+                    <path class="accent-path" d="M892 160V210H297V160" marker-end="url(#arrow-6)"></path>
+                  </g>
+                  <g class="diagram-node"><rect x="20" y="82" width="160" height="76"></rect><text x="100" y="113">Existing</text><text x="100" y="135">configuration</text></g>
+                  <g class="diagram-node"><rect x="225" y="82" width="145" height="76"></rect><text x="297" y="124">Mapping</text></g>
+                  <g class="diagram-node"><rect x="415" y="72" width="170" height="96"></rect><text x="500" y="111">Hermes</text><text x="500" y="133">orchestration</text></g>
+                  <g class="diagram-node diagram-control"><rect x="630" y="72" width="155" height="96"></rect><text x="707" y="111">Verification</text><text x="707" y="133">gate</text></g>
+                  <g class="diagram-node"><rect x="835" y="82" width="115" height="76"></rect><text x="892" y="124">Cutover</text></g>
+                </g>
+                <g class="diagram-mobile">
+                  <g class="diagram-connectors"><path d="M180 72V116M180 174V218M180 276V320M180 378V422" marker-end="url(#arrow-6)"></path><path class="accent-path" d="M55 451H18V145H55" marker-end="url(#arrow-6)"></path></g>
+                  <g class="diagram-node"><rect x="35" y="12" width="290" height="60"></rect><text x="180" y="47">Existing configuration</text></g>
+                  <g class="diagram-node"><rect x="35" y="116" width="290" height="58"></rect><text x="180" y="150">Configuration mapping</text></g>
+                  <g class="diagram-node"><rect x="35" y="218" width="290" height="58"></rect><text x="180" y="252">Hermes orchestration</text></g>
+                  <g class="diagram-node diagram-control"><rect x="35" y="320" width="290" height="58"></rect><text x="180" y="354">Verification gate</text></g>
+                  <g class="diagram-node"><rect x="35" y="422" width="290" height="58"></rect><text x="180" y="456">Cutover with recovery path</text></g>
+                </g>
+              </svg>
+            </figure>
+          </template>
         </div>
       </section>
 
-      <section class="credentials" id="credentials" aria-labelledby="credentials-heading">
-        <div class="credential-title">
-          <p class="section-index">Enterprise foundation</p>
-          <h2 id="credentials-heading">Technical fluency with delivery authority.</h2>
-          <p>Architecture is only useful when teams can govern, fund, sequence, implement, and adopt it.</p>
+      <section class="credentials section-block" id="credentials" aria-labelledby="credentials-heading">
+        <div class="layout-grid section-heading">
+          <div class="heading-main">
+            <p class="section-label">Evidence registry</p>
+            <h2 id="credentials-heading">Technical fluency with delivery authority.</h2>
+          </div>
+          <p class="margin-note">Architecture is useful when teams can govern, fund, sequence, implement, and adopt it.</p>
         </div>
-        <div class="credential-groups">
-          <section>
-            <h3>AI, cloud &amp; data</h3>
+
+        <div class="layout-grid credential-registry">
+          <section class="credential-group">
+            <h3>AI, cloud, and data</h3>
             <ul>
-              <li>NVIDIA Certified Professional: AI Agents</li>
-              <li>Azure Solutions Architect Expert</li>
-              <li>Azure Data Engineer Associate</li>
-              <li>Salesforce Data Architect</li>
-              <li>Microsoft Fabric, analytics, and automation</li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">AI</text></svg><span><small>Credential</small>NVIDIA Certified Professional: AI Agents</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">AZ</text></svg><span><small>Credential</small>Azure Solutions Architect Expert</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">DE</text></svg><span><small>Credential</small>Azure Data Engineer Associate</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">SD</text></svg><span><small>Credential</small>Salesforce Data Architect</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">MF</text></svg><span><small>Capability</small>Microsoft Fabric, analytics, and automation</span></li>
             </ul>
           </section>
-          <section>
-            <h3>Delivery &amp; analysis</h3>
+
+          <section class="credential-group">
+            <h3>Delivery and analysis</h3>
             <ul>
-              <li>Project Management Professional (PMP)</li>
-              <li>SAFe 6 Agilist</li>
-              <li>Certified Business Analysis Professional (CBAP)</li>
-              <li>Certified ScrumMaster</li>
-              <li>Requirements and stakeholder governance</li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38"></rect><text x="24" y="28">PM</text></svg><span><small>Credential</small>Project Management Professional (PMP)</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38"></rect><text x="24" y="28">S6</text></svg><span><small>Credential</small>SAFe 6 Agilist</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38"></rect><text x="24" y="28">BA</text></svg><span><small>Credential</small>Certified Business Analysis Professional (CBAP)</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38"></rect><text x="24" y="28">SM</text></svg><span><small>Credential</small>Certified ScrumMaster</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38"></rect><text x="24" y="28">AP</text></svg><span><small>Credential</small>Certified Analytics Professional</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38"></rect><text x="24" y="28">RG</text></svg><span><small>Capability</small>Requirements and stakeholder governance</span></li>
             </ul>
           </section>
-          <section>
+
+          <section class="credential-group credential-context">
             <h3>Operating contexts</h3>
             <ul>
-              <li>NYC HPD</li>
-              <li>State and local government</li>
-              <li>HIPAA-aware delivery</li>
-              <li>Section 508 accessibility</li>
-              <li>Salesforce and S/4HANA programs</li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">HP</text></svg><span><small>Environment</small>NYC HPD</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">SL</text></svg><span><small>Environment</small>State and local government</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">HI</text></svg><span><small>Context</small>HIPAA-aware delivery</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">508</text></svg><span><small>Context</small>Section 508 accessibility</span></li>
+              <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><text x="24" y="28">ES</text></svg><span><small>Environment</small>Salesforce and S/4HANA programs</span></li>
             </ul>
           </section>
         </div>
       </section>
 
-      <section class="contact" id="contact" aria-labelledby="contact-heading">
-        <div>
-          <p class="section-index">Next decision</p>
-          <h2 id="contact-heading">Put an architect in the room who can also move the work.</h2>
-        </div>
-        <div class="contact-copy">
-          <p>Discuss an AI architecture, delivery leadership, business analysis, or Azure/Fabric contract. Available at $110–$160/hr through Corporate Consulting LLC or W-2.</p>
-          <div class="contact-actions">
-            <a class="button button-primary" href="https://cal.com/jason-sant-tzco13/10min" target="_blank" rel="noopener">Book a call</a>
-            <a class="text-link" href="https://github.com/webdev0814" target="_blank" rel="noreferrer">Review GitHub</a>
-            <a class="text-link" href="https://www.linkedin.com/in/jasonsantpmp" target="_blank" rel="noreferrer">LinkedIn</a>
+      <section class="contact section-block" id="contact" aria-labelledby="contact-heading">
+        <div class="layout-grid contact-layout">
+          <div class="contact-spine" aria-hidden="true"><span></span><i></i></div>
+          <div class="contact-heading">
+            <p class="section-label">Next decision</p>
+            <h2 id="contact-heading">Put an architect in the room who can also move the work.</h2>
           </div>
-          <p class="insurance">Insured through a Hanover business-owners/GL policy and Hartford Tech E&amp;O.</p>
+          <div class="contact-details">
+            <p class="commercial-terms"><strong>$110–$160/hr</strong><br>Corporate Consulting LLC · Wyoming LLC<br>C2C or W-2</p>
+            <p>Enterprise AI architecture, delivery leadership, business analysis, and Azure/Fabric engagements.</p>
+            <a class="button button-primary" href="https://cal.com/jason-sant-tzco13/10min" target="_blank" rel="noopener">Book a call</a>
+            <div class="contact-links">
+              <a href="https://github.com/webdev0814" target="_blank" rel="noreferrer">Review GitHub</a>
+              <a href="https://www.linkedin.com/in/jasonsantpmp" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+            <p class="insurance">Insured through Hanover business-owners/GL and Hartford Tech E&amp;O.</p>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="current-year">2026</span> Jason Agentic</p>
-      <p>Enterprise AI architecture · Principal delivery leadership</p>
-      <a href="#top">Back to top</a>
+      <div class="layout-grid footer-grid">
+        <div>
+          <strong>Jason Agentic</strong>
+          <p>Enterprise AI Solutions Architect and Principal Delivery Leader</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="https://github.com/webdev0814" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/jasonsantpmp" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="#top">Back to top</a>
+        </nav>
+        <p>© <span id="current-year">2026</span> Jason Agentic</p>
+      </div>
     </footer>
 
     <script src="effects.js?v=20261101" defer></script>
