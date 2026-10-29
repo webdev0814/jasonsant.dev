@@ -4,8 +4,10 @@
   const root = document.documentElement;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const mobileDiagramQuery = window.matchMedia("(max-width: 759px)");
   const themeButton = document.querySelector(".theme-toggle");
   const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
   const readSavedTheme = () => {
     try {
@@ -20,6 +22,7 @@
     if (root.dataset.theme === "light" || root.dataset.theme === "dark") {
       return root.dataset.theme;
     }
+
     return systemTheme.matches ? "dark" : "light";
   };
 
@@ -29,10 +32,14 @@
 
     if (themeButton) {
       themeButton.setAttribute("aria-label", `Switch to ${next} theme`);
+      themeButton.setAttribute("title", `Switch to ${next} theme`);
     }
 
     if (themeMeta) {
-      themeMeta.setAttribute("content", current === "dark" ? "#0f171a" : "#f7f6f2");
+      themeMeta.setAttribute(
+        "content",
+        current === "dark" ? "#0f171a" : "#f7f6f2"
+      );
     }
   };
 
@@ -63,28 +70,115 @@
     updateThemeControl();
   }
 
+  const compactMobileDiagram = (svg) => {
+    const mobileGroup = svg.querySelector(".diagram-mobile");
+    const connectors = mobileGroup?.querySelector(".diagram-connectors");
+    const nodes = mobileGroup
+      ? Array.from(mobileGroup.querySelectorAll(".diagram-node"))
+      : [];
+
+    if (!mobileGroup || !connectors || !nodes.length) {
+      return;
+    }
+
+    const existingPaths = Array.from(
+      connectors.querySelectorAll(":scope > path")
+    );
+    const firstDirectedPath = existingPaths.find((path) =>
+      path.hasAttribute("marker-end")
+    );
+    const markerEnd = firstDirectedPath?.getAttribute("marker-end") || "";
+    const recoveryPath = connectors.querySelector(".accent-path");
+
+    existingPaths.forEach((path) => {
+      if (path !== recoveryPath) {
+        path.remove();
+      }
+    });
+
+    nodes.forEach((node, index) => {
+      const y = 12 + index * 70;
+      const rect = node.querySelector("rect");
+      const textLines = Array.from(node.querySelectorAll("text"));
+
+      if (rect) {
+        rect.setAttribute("x", "35");
+        rect.setAttribute("y", String(y));
+        rect.setAttribute("width", "290");
+        rect.setAttribute("height", "46");
+      }
+
+      textLines.forEach((textLine, lineIndex) => {
+        const lineOffset =
+          (lineIndex - (textLines.length - 1) / 2) * 14;
+
+        textLine.setAttribute("x", "180");
+        textLine.setAttribute("y", String(y + 27 + lineOffset));
+      });
+
+      if (index < nodes.length - 1) {
+        const connector = document.createElementNS(SVG_NAMESPACE, "path");
+        connector.setAttribute(
+          "d",
+          `M180 ${y + 46}V${12 + (index + 1) * 70}`
+        );
+
+        if (markerEnd) {
+          connector.setAttribute("marker-end", markerEnd);
+        }
+
+        connectors.insertBefore(connector, recoveryPath);
+      }
+    });
+
+    if (recoveryPath && nodes.length > 2) {
+      const lastCenter = 12 + (nodes.length - 1) * 70 + 23;
+      const secondCenter = 12 + 70 + 23;
+
+      recoveryPath.setAttribute(
+        "d",
+        `M35 ${lastCenter}H14V${secondCenter}H35`
+      );
+
+      if (markerEnd) {
+        recoveryPath.setAttribute("marker-end", markerEnd);
+      }
+    }
+  };
+
   const caseStudies = Array.from(document.querySelectorAll(".case-study"));
 
   caseStudies.forEach((caseStudy, index) => {
     const template = document.getElementById(`case-diagram-${index + 1}`);
     const caseFlow = caseStudy.querySelector(".case-flow");
 
-    if (template && caseFlow) {
-      caseStudy.insertBefore(template.content.cloneNode(true), caseFlow);
+    if (!template || !caseFlow) {
+      return;
+    }
+
+    caseStudy.insertBefore(template.content.cloneNode(true), caseFlow);
+
+    const diagram = caseStudy.querySelector(".case-diagram svg");
+    if (diagram) {
+      compactMobileDiagram(diagram);
     }
   });
 
   const updateDiagramViews = () => {
-    const mobile = window.matchMedia("(max-width: 759px)").matches;
+    const mobile = mobileDiagramQuery.matches;
 
     document.querySelectorAll(".case-diagram svg").forEach((diagram) => {
-      diagram.setAttribute("viewBox", mobile ? "0 0 360 620" : "0 0 960 240");
+      diagram.setAttribute(
+        "viewBox",
+        mobile ? "0 0 360 420" : "0 0 960 240"
+      );
     });
   };
 
   updateDiagramViews();
 
   let diagramResizeFrame = 0;
+
   window.addEventListener("resize", () => {
     cancelAnimationFrame(diagramResizeFrame);
     diagramResizeFrame = requestAnimationFrame(updateDiagramViews);
@@ -102,6 +196,7 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && mobileMenu.open) {
         mobileMenu.open = false;
+
         const summary = mobileMenu.querySelector("summary");
         if (summary) {
           summary.focus();
@@ -126,7 +221,9 @@
       });
 
       panels.forEach((panel) => {
-        const active = panel.id === selectedTab.getAttribute("aria-controls");
+        const active =
+          panel.id === selectedTab.getAttribute("aria-controls");
+
         panel.hidden = !active;
         panel.classList.toggle("is-active", active);
       });
@@ -174,7 +271,12 @@
       });
     });
 
-    commitTabChange(tabs.find((tab) => tab.getAttribute("aria-selected") === "true") || tabs[0]);
+    const initiallySelected =
+      tabs.find(
+        (tab) => tab.getAttribute("aria-selected") === "true"
+      ) || tabs[0];
+
+    commitTabChange(initiallySelected);
     tabGroup.classList.add("tabs-ready");
   });
 
@@ -213,7 +315,10 @@
 
       return Math.min(
         Number.isFinite(maximum) ? maximum : value,
-        Math.max(Number.isFinite(minimum) ? minimum : 0, value)
+        Math.max(
+          Number.isFinite(minimum) ? minimum : 0,
+          value
+        )
       );
     };
 
@@ -234,7 +339,10 @@
 
       savedShareValue.value = shareText;
       savedShareValue.textContent = shareText;
-      formula.textContent = `${number.format(people)} × ${number.format(hours)} × ${currency.format(rate)} × 48 = ${costText}`;
+      formula.textContent =
+        `${number.format(people)} × ` +
+        `${number.format(hours)} × ` +
+        `${currency.format(rate)} × 48 = ${costText}`;
       annualCost.value = costText;
       annualCost.textContent = costText;
       annualHours.textContent = number.format(yearlyHours);
@@ -253,30 +361,34 @@
 
   if ("IntersectionObserver" in window && !reducedMotion.matches) {
     const revealTargets = [
-      ...document.querySelectorAll(".diagram-connectors"),
+      ...document.querySelectorAll(".case-diagram"),
       ...document.querySelectorAll(".credential-group")
-    ].slice(0, 12);
+    ];
 
     if (revealTargets.length) {
       root.classList.add("reveal-ready");
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.18,
-        rootMargin: "0px 0px -12% 0px"
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin: "0px 0px -12% 0px"
+        }
+      );
 
       revealTargets.forEach((target) => observer.observe(target));
     }
   }
 
   const currentYear = document.getElementById("current-year");
+
   if (currentYear) {
     currentYear.textContent = String(new Date().getFullYear());
   }
