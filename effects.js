@@ -123,7 +123,7 @@
 
       savedShareValue.value = `${Math.round(share * 100)}%`;
       savedShareValue.textContent = `${Math.round(share * 100)}%`;
-      formula.textContent = `${number.format(people)} Ã— ${number.format(hours)} Ã— ${currency.format(rate)} Ã— 48 weeks`;
+      formula.textContent = `${number.format(people)} × ${number.format(hours)} × ${currency.format(rate)} × 48 weeks`;
       annualHours.textContent = number.format(yearlyHours);
       annualCost.textContent = currency.format(yearlyCost);
       hoursSaved.textContent = number.format(estimatedHoursSaved);

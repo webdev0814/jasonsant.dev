@@ -10,11 +10,11 @@ Ship date: Sunday, November 1, 2026.
 
 Convert senior technical recruiters, hiring managers, and enterprise consulting buyers seeking an experienced leader for:
 
-- $110â€“$160/hr
+- $110–$160/hr
 - C2C through Corporate Consulting LLC, a Wyoming LLC
 - W-2 contract engagements
 
-The site should make Jasonâ€™s fit, commercial terms, enterprise experience, governance mindset, credentials, and public technical work understandable within seconds.
+The site should make Jason’s fit, commercial terms, enterprise experience, governance mindset, credentials, and public technical work understandable within seconds.
 
 ## Audience priorities
 
@@ -42,7 +42,7 @@ Do not use unsupported performance statistics or imply that repository capabilit
 
 Display these facts prominently and accurately:
 
-- Rate: $110â€“$160/hr
+- Rate: $110–$160/hr
 - Engagements: C2C via Corporate Consulting LLC (Wyoming LLC) or W-2
 - Insurance: Hanover business-owners/GL policy and Hartford Tech E&O
 - Booking destination: `/calendar/`
@@ -59,12 +59,12 @@ The hero must provide a five-second answer to:
 
 Use exactly two hero calls to action:
 
-1. â€œBook a callâ€ linking to `/calendar/`
-2. â€œSee case studiesâ€ linking to `#case-studies`
+1. “Book a call” linking to `/calendar/`
+2. “See case studies” linking to `#case-studies`
 
 Include a fast-facts strip covering:
 
-- $110â€“$160/hr
+- $110–$160/hr
 - C2C via Corporate Consulting LLC (Wyoming LLC) or W-2
 - Hanover business-owners/GL plus Hartford Tech E&O
 - NYC HPD and state/local government
@@ -108,11 +108,11 @@ Provide an accessible estimator using:
 
 Calculation:
 
-`team size Ã— weekly manual hours Ã— blended rate Ã— 48 = annual manual cost`
+`team size × weekly manual hours × blended rate × 48 = annual manual cost`
 
 The defaults must produce:
 
-`10 Ã— 5 Ã— $120 Ã— 48 = $288,000`
+`10 × 5 × $120 × 48 = $288,000`
 
 Also calculate estimated annual hours saved and estimated annual value of hours saved. Clearly state that results are planning estimates, not guaranteed savings.
 
@@ -123,7 +123,7 @@ Requirements:
 - Live range-value feedback
 - `aria-live` result output
 - Locale-formatted numbers and currency
-- No misleading â€œROIâ€ ratio when implementation cost is not supplied
+- No misleading “ROI” ratio when implementation cost is not supplied
 
 ## Case studies
 
@@ -147,7 +147,7 @@ Every case study must use this structure:
 - Governance
 - Impact
 
-â€œImpactâ€ must describe observable capability or operational intent rather than invented percentages, dollar savings, user totals, uptime, or client results.
+“Impact” must describe observable capability or operational intent rather than invented percentages, dollar savings, user totals, uptime, or client results.
 
 ## Metadata and structured data
 
@@ -209,7 +209,7 @@ Palette:
 Typography:
 
 - Display: Georgia with high-contrast editorial scale
-- Interface and body: â€œAptosâ€, â€œSegoe UIâ€, and system sans-serif fallbacks
+- Interface and body: “Aptos”, “Segoe UI”, and system sans-serif fallbacks
 
 Layout:
 
@@ -221,7 +221,7 @@ Layout:
 
 Signature:
 
-A restrained â€œgovernance traceâ€ line runs through the hero and selected section boundaries, visually connecting business intent, architecture, controls, and outcomes.
+A restrained “governance trace” line runs through the hero and selected section boundaries, visually connecting business intent, architecture, controls, and outcomes.
 
 Avoid:
 
@@ -242,7 +242,7 @@ Use concise, active, enterprise-facing language. Prefer concrete terms such as a
 
 The release is ready when:
 
-- The rate appears as `$110â€“$160/hr`.
+- The rate appears as `$110–$160/hr`.
 - C2C and W-2 options are accurate.
 - Both insurance policies are named.
 - Hero contains exactly two CTAs.
