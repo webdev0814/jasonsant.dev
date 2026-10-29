@@ -45,7 +45,8 @@ Display these facts prominently and accurately:
 - Rate: $110–$160/hr
 - Engagements: C2C via Corporate Consulting LLC (Wyoming LLC) or W-2
 - Insurance: Hanover business-owners/GL policy and Hartford Tech E&O
-- Booking destination: `/calendar/`
+- Booking destination: `https://cal.com/jason-sant-tzco13/10min` (new tab, rel="noopener"); the /calendar/ folder stays untouched
+- LinkedIn: https://www.linkedin.com/in/jasonsantpmp
 
 ## Hero requirements
 
@@ -59,7 +60,7 @@ The hero must provide a five-second answer to:
 
 Use exactly two hero calls to action:
 
-1. “Book a call” linking to `/calendar/`
+1. “Book a call” linking to `https://cal.com/jason-sant-tzco13/10min` (opens in a new tab, rel="noopener")
 2. “See case studies” linking to `#case-studies`
 
 Include a fast-facts strip covering:
@@ -161,9 +162,9 @@ Include:
 - JSON-LD `Person`
 - JSON-LD `ProfessionalService`
 
-Structured data must use only supportable claims. Do not add a LinkedIn URL. Preserve this placeholder in the HTML source:
+Structured data must use only supportable claims. Person `sameAs` includes https://github.com/webdev0814 and https://www.linkedin.com/in/jasonsantpmp; the contact section also links to LinkedIn.
 
-`<!-- LINKEDIN_URL_PLACEHOLDER -->`
+
 
 ## Accessibility
 
@@ -232,7 +233,7 @@ Avoid:
 - All-caps eyebrow labels above every section
 - Unnecessary motion
 - Unsupported social proof
-- LinkedIn links until a verified URL is supplied
+
 
 ## Content voice
 
@@ -246,12 +247,12 @@ The release is ready when:
 - C2C and W-2 options are accurate.
 - Both insurance policies are named.
 - Hero contains exactly two CTAs.
-- `/calendar/` is the booking destination.
+- `https://cal.com/jason-sant-tzco13/10min` (new tab, rel=noopener) is the booking destination; LinkedIn links to https://www.linkedin.com/in/jasonsantpmp.
 - All four tabs work with pointer and keyboard input.
 - Calculator defaults return `$288,000` annual manual cost.
 - All six repository URLs are unchanged.
 - No unsupported metrics appear.
-- The project markers and LinkedIn placeholder remain.
+- The project markerss remain.
 - Metadata and both JSON-LD entities are present.
 - Mobile navigation works with JavaScript and remains usable without it.
 - Reduced-motion and visible-focus behavior are implemented.
