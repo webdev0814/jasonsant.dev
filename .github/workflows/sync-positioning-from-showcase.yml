@@ -28,6 +28,8 @@ jobs:
           python-version: "3.x"
 
       - name: Sync highlighted GitHub work
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/sync_positioning_projects.py
 
       - name: Commit updated positioning links

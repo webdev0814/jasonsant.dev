@@ -53,6 +53,7 @@ The most recent commits show the latest development trajectory:
 
 ## 5. Current State & Immediate Next Steps
 - **Current State**: Project is active under branch `main`.
+- **2026-09-15 sync repair**: Run 34965655678 failed with GitHub API HTTP 403 rate limit exceeded. The sync now uses the built-in GITHUB_TOKEN supplied by its workflow; missing CI credentials fail explicitly. Verify the fresh push-triggered sync run after this commit.
 - **When picking up this repo**:
   1. Inspect the top-level files and recent commits to understand the active feature or bugfix context.
   2. Verify all required credentials and environment variables before running integration scripts.
