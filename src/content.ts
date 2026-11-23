@@ -1,4 +1,5 @@
-export const BOOK = "https://cal.com/jason-sant-tzco13/10min"
+export const BOOK = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ItADPX-rRox7lVw4h6wjPpYoRnvnXZCncUyGGiRoB7tBGgMw9p4YdAahGxXHfLe66JsuixLDX"
+export const BOOK_EMBED = `${BOOK}?gv=true`
 export const LINKEDIN = "https://www.linkedin.com/in/jasonsantpmp"
 export const ORIGIN = "https://jasonsant.dev"
 
@@ -88,7 +89,8 @@ export function normalizePath(url: string) {
 export function getPage(url: string) {
   const path = normalizePath(url)
   const study = studies.find((item) => studyUrl(item) === path)
-  if (path === "/") return { path, study: undefined, ...homeMetadata, type: "website" }
-  if (study) return { path, study, title: study.pageTitle, description: study.standfirst, type: "article" }
-  return { path, study: undefined, title: "Page not found — Jason Sant", description: "That page doesn't exist. Try the home page.", type: "website" }
+  if (path === "/") return { path, study: undefined, booking: false, ...homeMetadata, type: "website" }
+  if (path === "/calendar/") return { path, study: undefined, booking: true, title: "Book a call | Jason Sant", description: "Book a 15-minute intro call with Jason Sant. Every booking includes a Google Meet link.", type: "website" }
+  if (study) return { path, study, booking: false, title: study.pageTitle, description: study.standfirst, type: "article" }
+  return { path, study: undefined, booking: false, title: "Page not found — Jason Sant", description: "That page doesn't exist. Try the home page.", type: "website" }
 }
