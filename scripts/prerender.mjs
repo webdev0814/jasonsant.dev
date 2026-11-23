@@ -13,6 +13,7 @@ const routes = [
   ["/work/public-broadcaster-kpi-pilot/", "work/public-broadcaster-kpi-pilot/index.html"],
   ["/work/municipal-systems-modernization/", "work/municipal-systems-modernization/index.html"],
   ["/work/ai-quota-hud/", "work/ai-quota-hud/index.html"],
+  ["/calendar/", "calendar/index.html"],
   ["/404.html", "404.html"],
 ]
 

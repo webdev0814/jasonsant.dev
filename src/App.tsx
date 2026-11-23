@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { QuotaIllustration } from "@/components/QuotaIllustration"
-import { BOOK, LINKEDIN, getPage, studies, studyUrl, type Study } from "@/content"
+import { BOOK, BOOK_EMBED, LINKEDIN, getPage, studies, studyUrl, type Study } from "@/content"
 
 const loadMotionFeatures = () => import("./motion-features").then((module) => module.default)
 
@@ -17,7 +17,7 @@ function CallButton({ short = false, light = false }: { short?: boolean; light?:
   return (
     <Button asChild size="lg" className={`call-button${light ? " call-button-light" : ""}`}>
       <m.a href={BOOK} target="_blank" rel="noopener" whileHover={{ y: -2 }} whileTap={{ y: 1 }}>
-        {short ? "Book a call" : "Book a 10-minute call"}
+        {short ? "Book a call" : "Book a 15-minute call"}
         <ArrowUpRight aria-hidden="true" />
         <span className="sr-only"> (opens in new tab)</span>
       </m.a>
@@ -214,6 +214,21 @@ function CaseStudy({ study }: { study: Study }) {
   )
 }
 
+function Booking() {
+  return (
+    <main id="main-content" className="booking container">
+      <p className="mono booking-kicker">15-minute intro call · Google Meet</p>
+      <h1>Book a call</h1>
+      <p className="booking-lede">Pick a time that suits you. Each booking adds a Google Meet link to the invite, so you can join straight from your calendar.</p>
+      <div className="hero-actions"><CallButton /><LinkedInLink /></div>
+      <div className="booking-frame">
+        <iframe src={BOOK_EMBED} title="Booking calendar for a 15-minute call with Jason Sant" loading="lazy" />
+      </div>
+      <p className="booking-note">Calendar not loading? <a className="text-link" href={BOOK} target="_blank" rel="noopener">Open the booking page<span className="sr-only"> (opens in new tab)</span></a></p>
+    </main>
+  )
+}
+
 function NotFound() {
   return <main id="main-content" className="not-found container"><p className="mono">404</p><h1>Page not found</h1><p>That page doesn't exist. Try the home page.</p><div className="hero-actions"><a className="text-link" href="/">Home<ArrowRight size={16} aria-hidden="true" /></a><CallButton short /></div></main>
 }
@@ -226,7 +241,7 @@ export default function App({ url }: { url: string }) {
       <LazyMotion features={loadMotionFeatures} strict>
         <a className="skip-link" href="#main-content">Skip to content</a>
         <Header home={home} />
-        {home ? <Home /> : page.study ? <CaseStudy study={page.study} /> : <NotFound />}
+        {home ? <Home /> : page.study ? <CaseStudy study={page.study} /> : page.booking ? <Booking /> : <NotFound />}
         <Footer />
       </LazyMotion>
     </MotionConfig>
