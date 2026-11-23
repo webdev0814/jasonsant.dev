@@ -3,3 +3,4 @@ dist
 dist-ssr
 .codex-events.jsonl
 result.md
+stderr.log
